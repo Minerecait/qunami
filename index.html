@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Автокомплекс «Цунами» — Автомойка, Шиномонтаж и СТО в Сызрани</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Шрифт Exo 2 + Rubik -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;800;900&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Стили -->
+    <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body class="bg-[#040d1a] text-cyan-50 antialiased pb-16 sm:pb-0 selection:bg-cyan-400 selection:text-slate-950">
+
+    <!-- Морское неоновое свечение на фоне -->
+    <div class="fixed top-0 left-1/4 w-[450px] h-[350px] bg-cyan-500/15 blur-[140px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-0 right-1/4 w-[400px] h-[300px] bg-blue-600/15 blur-[140px] pointer-events-none z-0"></div>
+
+    <!-- Шапка сайта -->
+    <header class="sticky top-0 z-40 bg-[#040d1a]/90 backdrop-blur-xl border-b border-cyan-500/20">
+        <div class="max-w-7xl mx-auto px-3.5 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2">
+            <!-- Логотип -->
+            <a href="#" class="flex items-center gap-2.5 shrink-0">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center text-slate-950 font-black text-xl sm:text-2xl shadow-lg shadow-cyan-400/25">
+                    <i class="fa-solid fa-water"></i>
+                </div>
+                <div>
+                    <span class="wave-font text-lg sm:text-2xl font-black tracking-wide text-white block leading-none">ЦУНАМИ</span>
+                    <span class="text-[10px] sm:text-xs text-cyan-400 font-semibold uppercase tracking-widest block mt-0.5">Мойка • Шины • Сервис</span>
+                </div>
+            </a>
+
+            <!-- Инфо-капсула (ПК) -->
+            <div class="hidden lg:flex items-center gap-5 text-xs text-cyan-100/80 bg-cyan-950/40 border border-cyan-500/20 px-4 py-2 rounded-full">
+                <span><i class="fa-solid fa-location-dot text-cyan-400 mr-1.5"></i>г. Сызрань, ул. Мира, 1а</span>
+                <span class="text-cyan-800">|</span>
+                <span><i class="fa-solid fa-bus text-cyan-400 mr-1.5"></i>Ост. «Кафе Цунами» (1 мин)</span>
+                <span class="text-cyan-800">|</span>
+                <span id="work-status" class="text-cyan-300 font-semibold">Ежедневно 08:00–20:00</span>
+            </div>
+
+            <!-- Кнопка связи -->
+            <div class="flex items-center gap-2">
+                <a href="tel:+79277865550" class="bg-gradient-to-r from-cyan-400 to-sky-500 hover:from-cyan-300 hover:to-sky-400 text-slate-950 font-extrabold text-xs sm:text-sm px-3.5 py-2.5 sm:px-5 sm:py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-cyan-400/20">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>+7-927-786-55-50</span>
+                </a>
+                <button id="mobile-menu-btn" class="lg:hidden w-10 h-10 rounded-xl bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#071529] border-b border-cyan-500/25 px-4 py-4 space-y-3">
+            <div class="text-xs text-cyan-100 space-y-1.5 bg-cyan-950/40 p-3.5 rounded-xl border border-cyan-500/20">
+                <p class="font-bold text-white"><i class="fa-solid fa-location-dot text-cyan-400 mr-2"></i>г. Сызрань, ул. Мира, 1а</p>
+                <p class="pl-5 text-cyan-200/70">Рядом с ост. «Кафе Цунами» (1 минута)</p>
+                <p class="pt-1 font-semibold text-cyan-400"><i class="fa-regular fa-clock mr-2"></i>Работаем: 08:00–20:00</p>
+            </div>
+            <div class="grid grid-cols-1 gap-2">
+                <a href="tel:+79277865550" class="bg-cyan-400 text-slate-950 font-extrabold py-3 rounded-xl text-center text-xs sm:text-sm">
+                    <i class="fa-solid fa-phone mr-1.5"></i> Позвонить: +7-927-786-55-50
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный экран (Концепция 3-в-1) -->
+    <section class="relative z-10 pt-8 pb-12 sm:py-16 lg:py-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Левая часть -->
+                <div class="lg:col-span-7 space-y-4 sm:space-y-6">
+                    <div class="inline-flex flex-wrap items-center gap-2 bg-cyan-500/10 border border-cyan-400/30 rounded-full px-3.5 py-1.5">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <span class="text-xs font-bold text-cyan-300">Автокомплекс 3-в-1 на ул. Мира, 1а</span>
+                    </div>
+
+                    <h1 class="wave-font text-2xl sm:text-4xl lg:text-5xl font-black leading-tight uppercase">
+                        АВТОМОЙКА, ШИНОМОНТАЖ И <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-400">АВТОСЕРВИС В ОДНОМ МЕСТЕ</span>
+                    </h1>
+
+                    <p class="text-cyan-100/80 text-sm sm:text-base leading-relaxed max-w-2xl">
+                        Экономьте своё время в автокомплексе «Цунами»! Пока мы бережно моете кузов и салон вашего авто, мастера переобуют резину, отбалансируют колеса или проведут плановое ТО.
+                    </p>
+
+                    <!-- 3 мини-плашки подразделений -->
+                    <div class="grid grid-cols-3 gap-2.5 sm:gap-4 pt-1">
+                        <div class="aqua-card rounded-xl p-3 text-center">
+                            <i class="fa-solid fa-shower text-cyan-400 text-lg sm:text-2xl mb-1"></i>
+                            <span class="block text-xs sm:text-sm font-bold text-white">Автомойка</span>
+                            <span class="block text-[10px] text-cyan-200/60">Кузов и химчистка</span>
+                        </div>
+                        <div class="aqua-card rounded-xl p-3 text-center">
+                            <i class="fa-solid fa-circle-dot text-sky-400 text-lg sm:text-2xl mb-1"></i>
+                            <span class="block text-xs sm:text-sm font-bold text-white">Шиномонтаж</span>
+                            <span class="block text-[10px] text-cyan-200/60">Балансировка R13–R22</span>
+                        </div>
+                        <div class="aqua-card rounded-xl p-3 text-center">
+                            <i class="fa-solid fa-screwdriver-wrench text-blue-400 text-lg sm:text-2xl mb-1"></i>
+                            <span class="block text-xs sm:text-sm font-bold text-white">Автосервис</span>
+                            <span class="block text-[10px] text-cyan-200/60">Ремонт и замена масла</span>
+                        </div>
+                    </div>
+
+                    <!-- Кнопки действия -->
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                        <button onclick="openModal('Быстрая запись в автокомплекс Цунами')" class="bg-gradient-to-r from-cyan-400 to-sky-500 hover:from-cyan-300 hover:to-sky-400 text-slate-950 font-extrabold px-6 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base transition shadow-xl shadow-cyan-500/20 flex items-center justify-center gap-2">
+                            <span>Записаться без очереди</span>
+                            <i class="fa-solid fa-bolt"></i>
+                        </button>
+                        <a href="#map-section" class="bg-cyan-950/50 hover:bg-cyan-900/60 border border-cyan-500/30 text-white font-semibold px-6 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-route text-emerald-400"></i>
+                            <span>Маршрут (ул. Мира, 1а)</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Правая часть: Виджет выбора бокса -->
+                <div class="lg:col-span-5">
+                    <div class="aqua-card rounded-3xl p-5 sm:p-7 border-t-4 border-t-cyan-400 shadow-2xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase text-cyan-400">Онлайн-бронирование бокса</span>
+                                <h3 class="wave-font text-lg sm:text-xl font-bold text-white">ВЫБЕРИТЕ НУЖНУЮ ЗОНУ</h3>
+                            </div>
+                            <span class="bg-cyan-400/15 text-cyan-300 text-xs font-bold px-2.5 py-1 rounded-lg">Без очереди</span>
+                        </div>
+
+                        <form id="hero-form" class="space-y-3.5">
+                            <div>
+                                <label class="text-xs text-cyan-200/80 block mb-1.5 font-medium">Куда вы хотите записаться?</label>
+                                <select class="w-full bg-[#040d1a] border border-cyan-500/30 rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                                    <option value="Автомойка / Химчистка">🚿 Автомойка / Уборка салона</option>
+                                    <option value="Шиномонтаж / Переобувка">🛞 Шиномонтаж / Ремонт прокола</option>
+                                    <option value="Автосервис / ТО">🔧 Автосервис / Замена масла и ремонт</option>
+                                    <option value="Комплекс (Мойка + Сервис)">✨ Комплекс (Мойка + ТО / Шины)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <input type="text" required placeholder="Ваш автомобиль (например: Kia Sportage)" class="w-full bg-[#040d1a] border border-cyan-500/30 rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                            </div>
+                            <div>
+                                <input type="tel" required placeholder="Ваш телефон: +7 (___) ___-__-__" class="w-full bg-[#040d1a] border border-cyan-500/30 rounded-xl px-3.5 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                            </div>
+                            <button type="submit" class="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold py-3.5 rounded-xl text-sm sm:text-base transition shadow-lg shadow-cyan-400/20">
+                                Забронировать время
+                            </button>
+                        </form>
+
+                        <div class="mt-4 pt-3 border-t border-cyan-500/20 flex items-center justify-between text-xs text-cyan-200/70">
+                            <span><i class="fa-solid fa-mug-hot text-cyan-400 mr-1"></i>Комфортная зона ожидания</span>
+                            <a href="tel:+79277865550" class="font-bold text-cyan-300 hover:underline">+7-927-786-55-50</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок: 3 главных направления комплекса «Цунами» -->
+    <section id="services" class="py-12 sm:py-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+                <span class="text-cyan-400 font-bold uppercase text-xs tracking-widest">Все услуги по одному адресу</span>
+                <h2 class="wave-font text-xl sm:text-3xl font-black text-white mt-1 uppercase">ЧТО МЫ ДЕЛАЕМ В «ЦУНАМИ»</h2>
+                <p class="text-xs sm:text-sm text-cyan-100/70 mt-2">Профессиональная автохимия, точные балансировочные станки и опытные автомеханики</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                <!-- Карточка 1: Автомойка -->
+                <div class="aqua-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-11 h-11 rounded-xl bg-cyan-400/15 text-cyan-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-soap"></i>
+                            </div>
+                            <span class="text-[11px] font-bold bg-cyan-400/15 text-cyan-300 px-2.5 py-1 rounded-full">Чистота</span>
+                        </div>
+                        <h3 class="font-extrabold text-base sm:text-lg text-white mb-2">Бесконтактная и трехфазная мойка</h3>
+                        <p class="text-xs sm:text-sm text-cyan-100/70 mb-4">Бережная мойка кузова активной пеной без царапин, мойка ковриков, порогов, нанесение жидкого воска и чернение резины.</p>
+                    </div>
+                    <button onclick="openModal('Запись на автомойку Цунами')" class="w-full bg-cyan-500/15 hover:bg-cyan-400 text-cyan-300 hover:text-slate-950 border border-cyan-400/30 font-bold py-2.5 rounded-xl text-xs sm:text-sm transition">
+                        Записаться на мойку
+                    </button>
+                </div>
+
+                <!-- Карточка 2: Химчистка салона -->
+                <div class="aqua-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-11 h-11 rounded-xl bg-cyan-400/15 text-cyan-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-spray-can-sparkles"></i>
+                            </div>
+                            <span class="text-[11px] font-bold bg-cyan-400/15 text-cyan-300 px-2.5 py-1 rounded-full">Уют в салоне</span>
+                        </div>
+                        <h3 class="font-extrabold text-base sm:text-lg text-white mb-2">Уборка и химчистка салона</h3>
+                        <p class="text-xs sm:text-sm text-cyan-100/70 mb-4">Мощный пылесос салона и багажника, полировка пластика, чистка стекол изнутри, глубокая химчистка сидений и потолка.</p>
+                    </div>
+                    <button onclick="openModal('Химчистка / Комплексная уборка салона')" class="w-full bg-cyan-500/15 hover:bg-cyan-400 text-cyan-300 hover:text-slate-950 border border-cyan-400/30 font-bold py-2.5 rounded-xl text-xs sm:text-sm transition">
+                        Узнать стоимость
+                    </button>
+                </div>
+
+                <!-- Карточка 3: Шиномонтаж -->
+                <div class="aqua-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-11 h-11 rounded-xl bg-sky-400/15 text-sky-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-circle-dot"></i>
+                            </div>
+                            <span class="text-[11px] font-bold bg-sky-400/15 text-sky-300 px-2.5 py-1 rounded-full">Сезон</span>
+                        </div>
+                        <h3 class="font-extrabold text-base sm:text-lg text-white mb-2">Шиномонтаж и балансировка</h3>
+                        <p class="text-xs sm:text-sm text-cyan-100/70 mb-4">Быстрая сезонная переобувка легковых авто и кроссоверов, компьютерная балансировка колес, ремонт проколов и боковых порезов.</p>
+                    </div>
+                    <button onclick="openModal('Запись на шиномонтаж')" class="w-full bg-cyan-500/15 hover:bg-cyan-400 text-cyan-300 hover:text-slate-950 border border-cyan-400/30 font-bold py-2.5 rounded-xl text-xs sm:text-sm transition">
+                        Записаться на переобувку
+                    </button>
+                </div>
+
+                <!-- Карточка 4: Экспресс-ТО -->
+                <div class="aqua-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-11 h-11 rounded-xl bg-blue-400/15 text-blue-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-oil-can"></i>
+                        </div>
+                        <h3 class="font-extrabold text-base sm:text-lg text-white mb-2">Замена масла, колодок и ТО</h3>
+                        <p class="text-xs sm:text-sm text-cyan-100/70 mb-4">Экспресс-замена масла в двигателе и КПП, масляных, воздушных и салонных фильтров, тормозных колодок и дисков.</p>
+                    </div>
+                    <button onclick="openModal('Замена масла и плановое ТО')" class="w-full bg-cyan-500/15 hover:bg-cyan-400 text-cyan-300 hover:text-slate-950 border border-cyan-400/30 font-bold py-2.5 rounded-xl text-xs sm:text-sm transition">
+                        Рассчитать цену ТО
+                    </button>
+                </div>
+
+                <!-- Карточка 5: Ходовая и слесарный ремонт -->
+                <div class="aqua-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-11 h-11 rounded-xl bg-blue-400/15 text-blue-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-car-wrench"></i>
+                        </div>
+                        <h3 class="font-extrabold text-base sm:text-lg text-white mb-2">Ремонт подвески и автосервис</h3>
+                        <p class="text-xs sm:text-sm text-cyan-100/70 mb-4">Диагностика ходовой части, замена стоек, амортизаторов, шаровых опор, рулевых наконечников, ступичных подшипников и ГРМ.</p>
+                    </div>
+                    <button onclick="openModal('Ремонт подвески в СТО Цунами')" class="w-full bg-cyan-500/15 hover:bg-cyan-400 text-cyan-300 hover:text-slate-950 border border-cyan-400/30 font-bold py-2.5 rounded-xl text-xs sm:text-sm transition">
+                        Записаться к механику
+                    </button>
+                </div>
+
+                <!-- Карточка 6: Выгодное комбо -->
+                <div class="rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-cyan-400 via-sky-500 to-blue-600 text-slate-950 flex flex-col justify-between shadow-xl">
+                    <div>
+                        <span class="bg-slate-950 text-cyan-300 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">Удобно и быстро</span>
+                        <h3 class="wave-font text-lg sm:text-xl font-black mt-3 mb-2 uppercase">ЧИСТЫЙ И ИСПРАВНЫЙ АВТО ЗА 1 ВИЗИТ!</h3>
+                        <p class="text-slate-950/85 text-xs sm:text-sm font-semibold mb-4">Позвоните администратору — подберем удобное окно сразу на мойку, шиномонтаж или сервис.</p>
+                    </div>
+                    <a href="tel:+79277865550" class="w-full bg-slate-950 hover:bg-slate-900 text-white font-extrabold py-3 rounded-xl text-center text-xs sm:text-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone text-cyan-400"></i> +7-927-786-55-50
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок: Интерактивное меню 2ГИС и Карта -->
+    <section id="map-section" class="py-12 sm:py-16 bg-[#061224] border-t border-cyan-500/20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="mb-6 sm:mb-8">
+                <span class="text-emerald-400 font-bold uppercase text-xs">Удобный заезд с дороги</span>
+                <h2 class="wave-font text-xl sm:text-3xl font-black text-white mt-1 uppercase">КАК НАС НАЙТИ В СЫЗРАНИ</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                <!-- Виджет 2ГИС -->
+                <div class="lg:col-span-5 aqua-card rounded-3xl p-5 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-[#28B463]"></div>
+
+                    <div>
+                        <div class="flex items-center justify-between border-b border-cyan-500/20 pb-4 mb-5">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="bg-[#28B463] text-white text-xs font-extrabold px-2 py-0.5 rounded">2ГИС</span>
+                                    <h3 class="text-xl font-extrabold text-white">Цунами</h3>
+                                </div>
+                                <p class="text-xs text-cyan-200/70 mt-1">Автомойка • Шиномонтаж • Автосервис</p>
+                            </div>
+                            <span class="text-xs font-bold bg-cyan-400/15 text-cyan-300 border border-cyan-400/30 px-2.5 py-1 rounded-lg">
+                                Комплекс 3-в-1
+                            </span>
+                        </div>
+
+                        <div class="space-y-4 text-xs sm:text-sm">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-[#28B463] shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white text-sm sm:text-base">Улица Мира, 1а</p>
+                                    <p class="text-cyan-200/70">г. Сызрань, Самарская область</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-bus"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white">Остановка «Кафе Цунами»</p>
+                                    <p class="text-cyan-200/70">В шаговой доступности (1 минута)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5">
+                                    <i class="fa-regular fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white">Ежедневно: 08:00–20:00</p>
+                                    <p class="text-emerald-400 text-xs">Работаем с раннего утра до вечера</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 pt-2 border-t border-cyan-500/20">
+                                <div class="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-[#28B463] shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <a href="tel:+79277865550" class="block font-extrabold text-white text-sm sm:text-base hover:text-cyan-400 transition">+7-927-786-55-50</a>
+                                    <span class="text-[11px] text-cyan-200/60">Запись на мойку, шиномонтаж и СТО</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-cyan-500/20">
+                        <a href="https://2gis.ru/togliatti/search/Сызрань%20Цунами%20Мира%201а" target="_blank" rel="noopener noreferrer" class="w-full bg-[#28B463] hover:bg-[#239B56] text-white font-extrabold py-3.5 px-4 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-[#28B463]/25 text-sm sm:text-base">
+                            <i class="fa-solid fa-route"></i>
+                            <span>Построить маршрут в 2ГИС</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Онлайн-карта -->
+                <div class="lg:col-span-7 rounded-3xl overflow-hidden border border-cyan-500/25 min-h-[300px] sm:min-h-[390px] bg-slate-950">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Сызрань,+улица+Мира,+1а&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                        class="w-full h-full min-h-[300px] sm:min-h-[390px] border-0" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="bg-[#020810] border-t border-cyan-500/10 py-8 text-center sm:text-left text-xs text-cyan-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <span class="wave-font text-white font-black text-sm">АВТОКОМПЛЕКС «<span class="text-cyan-400">ЦУНАМИ</span>»</span>
+                <p class="mt-1">© 2026 г. Сызрань, ул. Мира, 1а. Автомойка, шиномонтаж, автосервис.</p>
+            </div>
+            <a href="tel:+79277865550" class="text-cyan-400 font-bold text-sm">+7-927-786-55-50</a>
+        </div>
+    </footer>
+
+    <!-- Нижняя панель для смартфонов -->
+    <div class="sm:hidden fixed bottom-0 left-0 w-full z-40 bg-[#061224]/95 backdrop-blur-md border-t border-cyan-500/25 p-2 grid grid-cols-2 gap-2">
+        <a href="tel:+79277865550" class="bg-cyan-400 text-slate-950 font-extrabold py-2.5 rounded-xl text-center text-xs flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-phone"></i> Позвонить
+        </a>
+        <a href="https://2gis.ru/togliatti/search/Сызрань%20Цунами%20Мира%201а" target="_blank" class="bg-[#28B463] text-white font-extrabold py-2.5 rounded-xl text-center text-xs flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-route"></i> Маршрут 2ГИС
+        </a>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-[#08182e] border border-cyan-400/30 rounded-3xl max-w-md w-full p-5 sm:p-7 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-cyan-200/60 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="modal-title" class="wave-font text-lg sm:text-xl font-black text-white mb-2 uppercase">Запись в «Цунами»</h3>
+            <p class="text-xs text-cyan-100/70 mb-5">Оставьте ваш номер — администратор подтвердит свободное время записи.</p>
+            
+            <form id="booking-form" class="space-y-3.5">
+                <input type="text" required placeholder="Марка авто и нужная услуга" class="w-full bg-[#040d1a] border border-cyan-500/30 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                <input type="tel" required placeholder="Ваш телефон: +7..." class="w-full bg-[#040d1a] border border-cyan-500/30 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                <button type="submit" class="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold py-3.5 rounded-xl text-sm transition">
+                    Подтвердить запись
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

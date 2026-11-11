@@ -1,0 +1,29 @@
+/* Бронебойная защита под мобильные телефоны */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Rubik', sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-wrap: anywhere;
+}
+
+.wave-font {
+    font-family: 'Exo 2', sans-serif;
+}
+
+/* Морские неоновые карточки */
+.aqua-card {
+    background: linear-gradient(145deg, rgba(10, 28, 52, 0.85), rgba(6, 18, 36, 0.92));
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    backdrop-filter: blur(12px);
+    transition: all 0.25s ease;
+}
+
+.aqua-card:hover {
+    border-color: rgba(34, 211, 238, 0.55);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.22);
+}
